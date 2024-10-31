@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Your Home’s True Value - Free Home Evaluation</title>
+  <style>
+    /* General Style */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafc;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    /* Hero Section */
+    .hero {
+      background-color: #0d47a1;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+    /* Enhanced Value Display */
+    .home-value-scroller-container {
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      margin-bottom: 5px;
+      text-align: center;
+      animation: pulse 2s infinite;
+    }
+    .home-value-disclaimer {
+      font-size: 12px;
+      color: #ffecb3;
+      margin-top: 5px;
+      font-style: italic;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .home-value-scroller {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .home-value-scroller span {
+      color: #ffd600;
+    }
+    .zero-obligation-badge {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+      background-color: #ffecb3;
+      padding: 5px 12px;
+      border-radius: 20px;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      text-transform: uppercase;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .cta-button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .cta-button {
+      background-color: #ff5722;
+      color: white;
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .cta-button:hover {
+      background-color: #e64a19;
+    }
+    .countdown {
+      font-size: 18px;
+      color: #b71c1c;
+      font-weight: bold;
+      padding: 8px 15px;
+      background-color: #fef3e6;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    /* Form Section */
+    .form-section {
+      background-color: #ffffff;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      margin: 20px 0;
+      border-radius: 10px;
+      padding: 40px;
+      position: relative;
+    }
+    .form-section h2 {
+      font-size: 32px;
+      color: #0d47a1;
+      margin-bottom: 20px;
+    }
+    .form-section p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .limited-time-offer {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #b71c1c;
+      background-color: #fff3e0;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .form-section form input[type="text"],
+    .form-section form input[type="email"],
+    .form-section form input[type="tel"] {
+      width: 80%;
+      max-width: 500px;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .form-section form button {
+      background-color: #ff5722;
+      color: white;
+      padding: 15px 40px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      width: 80%;
+      max-width: 500px;
+    }
+    .form-section form button:hover {
+      background-color: #e64a19;
+    }
+    .legal-note {
+      font-size: 12px;
+      color: #999;
+      margin-top: 10px;
+    }
+    /* Evaluation Section */
+    .evaluation-section {
+      background-color: #f0f4f8;
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+      margin-top: 40px;
+    }
+    .evaluation-section::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 5px;
+      background-color: #0d47a1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .evaluation-features {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .evaluation-feature {
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .evaluation-feature img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
+    .evaluation-feature h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+    .evaluation-feature p {
+      font-size: 16px;
+      color: #555;
+    }
+    /* Who We Are Section */
+    .who-we-are-section {
+      background-color: #e3f2fd;
+      text-align: center;
+      padding: 40px;
+      margin-top: 20px;
+    }
+    .who-we-are-features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .who-we-are-feature {
+      flex: 0 1 30%;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* Testimonials Section */
+    .testimonials-section {
+      background-color: #fdf6e3;
+      text-align: center;
+      padding: 40px;
+      margin-top: 20px;
+    }
+    .testimonial {
+      background: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      padding: 20px;
+      max-width: 300px;
+      display: inline-block;
+      text-align: left;
+      border-radius: 10px;
+    }
+    .testimonial h3 {
+      color: #ff5722;
+      font-weight: bold;
+    }
+    /* Footer */
+    footer {
+      background-color: #0d47a1;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+    .footer-links {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .footer-links a {
+      color: #ffecb3;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-legal-note {
+      font-size: 12px;
+      color: #ffecb3;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="zero-obligation-badge">Zero Obligation</div>
+      <div class="home-value-scroller-container">
+        <div class="home-value-scroller">Your Home Value: <span id="home-value">$1,234,000</span></div>
+      </div>
+      <div class="home-value-disclaimer">*Displayed value is a sample and may not reflect the actual evaluation.</div>
+      <h1>Discover Your Home’s True Value!</h1>
+      <p>Get a free home evaluation and insights from local experts.</p>
+      <div class="cta-button-container">
+        <a href="#form" class="cta-button">Get Your Free Evaluation</a>
+      </div>
+      <div id="countdown" class="countdown">Limited Time: Save 0.5% Listing Fee if listing. Expires in 5:00</div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="form" class="form-section">
+      <div class="limited-time-offer">Limited Time Offer</div>
+      <h2>Unlock Your Home's Potential Now!</h2>
+      <p>Get a no-commitment, clear evaluation with zero obligation.</p>
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required><br>
+        <input type="email" name="email" placeholder="Email Address" required><br>
+        <input type="tel" name="phone" placeholder="Phone Number" required><br>
+        <input type="text" name="address" placeholder="Property Address" required><br>
+        <button type="submit">Get My Free Evaluation</button>
+      </form>
+      <div class="legal-note">*No Obligation. FREE Home Evaluation.</div>
+    </section>
+
+    <!-- Why Get a Free Home Evaluation Section -->
+    <section class="evaluation-section">
+      <h2>Why Get a Free Home Evaluation?</h2>
+      <div class="evaluation-features">
+        <div class="evaluation-feature">
+          <img src="icon-value.png" alt="Market Value Icon">
+          <h3>Know Your Home's Market Value</h3>
+          <p>Receive an expert-backed evaluation for current market worth.</p>
+        </div>
+        <div class="evaluation-feature">
+          <img src="icon-trends.png" alt="Market Trends Icon">
+          <h3>Track Local Market Trends</h3>
+          <p>See recent sales and compare your home to similar properties in your area.</p>
+        </div>
+        <div class="evaluation-feature">
+          <img src="icon-competitive.png" alt="Competitive Edge Icon">
+          <h3>Gain a Competitive Edge</h3>
+          <p>Understand competing listings nearby to help position your home advantageously.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="who-we-are-section">
+      <h2>Who We Are</h2>
+      <div class="who-we-are-features">
+        <div class="who-we-are-feature">
+          <h3>Trusted Network</h3>
+          <p>We connect you with the best real estate agents in Newmarket, each specializing in their respective areas to ensure you get top-notch service and results.</p>
+        </div>
+        <div class="who-we-are-feature">
+          <h3>Personalized Matches</h3>
+          <p>We understand your unique needs and connect you with the right agent who has the local expertise and experience to meet your goals.</p>
+        </div>
+        <div class="who-we-are-feature">
+          <h3>Commitment to Quality</h3>
+          <p>We work with a network of top-performing agents to ensure you receive exceptional service and reliable insights every step of the way.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial">
+        <h3>John D.</h3>
+        <p>"The best decision we made! Our agent knew the market and provided us with excellent advice."</p>
+      </div>
+      <div class="testimonial">
+        <h3>Sarah L.</h3>
+        <p>"Highly recommend! The process was smooth, and we were matched with an agent who understood exactly what we needed."</p>
+      </div>
+      <div class="testimonial">
+        <h3>Mike T.</h3>
+        <p>"Professional, accurate, and insightful. The agent we were connected with helped us understand our property's true value!"</p>
+      </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 YourHomeValuation.com. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#contact">Contact Us</a> | 
+        <a href="#privacy">Privacy Policy</a>
+      </div>
+      <p class="footer-legal-note">*The 0.5% listing fee savings applies only if you choose to list with our referred agent.</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript for Random Value Scroller and Countdown Timer -->
+  <script>
+    function getFinalHomeValue() {
+      const min = 1000000;
+      const max = 2000000;
+      let value = Math.floor(Math.random() * (max - min + 1)) + min;
+      value = Math.round(value / 1000) * 1000;
+      return value;
+    }
+
+    function startScrollingEffect(finalValue) {
+      const homeValueElement = document.getElementById('home-value');
+      const scrollInterval = 50;
+      let currentScrollValue = 1000000;
+
+      const interval = setInterval(() => {
+        homeValueElement.textContent = `$${currentScrollValue.toLocaleString("en-US")}`;
+        
+        if (currentScrollValue >= finalValue) {
+          clearInterval(interval);
+          homeValueElement.textContent = `$${finalValue.toLocaleString("en-US")}`;
+        } else {
+          currentScrollValue += Math.floor(Math.random() * 10000) + 10000;
+          if (currentScrollValue > finalValue) {
+            currentScrollValue = finalValue;
+          }
+        }
+      }, scrollInterval);
+    }
+
+    function startCountdown() {
+      let timer = 300; // 5 minutes in seconds
+      const countdownElement = document.getElementById("countdown");
+
+      const interval = setInterval(() => {
+        const minutes = Math.floor(timer / 60);
+        const seconds = timer % 60;
+        countdownElement.textContent = `Limited Time: Save 0.5% Listing Fee if listing. Expires in ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        
+        timer--;
+        if (timer < 0) {
+          clearInterval(interval);
+          countdownElement.textContent = "Offer expired";
+        }
+      }, 1000);
+    }
+
+    window.onload = function() {
+      const finalValue = getFinalHomeValue();
+      startScrollingEffect(finalValue);
+      startCountdown();
+    };
+  </script>
+</body>
+</html>
